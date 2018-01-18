@@ -1,5 +1,5 @@
 {
-  "name": "firstProject",
+  "name": "CarPooling App",
   "version": "0.0.1",
   "author": "Ionic Framework",
   "homepage": "http://ionicframework.com/",
@@ -25,6 +25,7 @@
     "@ionic-native/status-bar": "4.3.0",
     "@ionic/storage": "2.0.1",
     "angularfire2": "^5.0.0-rc.4",
+    "cordova-plugin-geolocation": "^3.0.0",
     "cordova-plugin-websocket": "^0.12.2",
     "cross-spawn": "^5.1.0",
     "firebase": "^4.6.2",
@@ -41,7 +42,8 @@
   "description": "An Ionic project",
   "cordova": {
     "plugins": {
-      "cordova-plugin-websocket": {}
+      "cordova-plugin-websocket": {},
+      "cordova-plugin-geolocation": {}
     }
   }
 }

@@ -5,21 +5,21 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import {AngularFireAuthModule} from "angularfire2/auth"
 import {AngularFireDatabaseModule} from 'angularfire2/database-deprecated';
-
+import { Geolocation } from '@ionic-native/geolocation';
 
 import {FormsModule } from '@angular/forms';
 import {AngularFireModule} from 'angularfire2';
 import { carPool } from './app.component';
 
-import { EditcarPoolPage } from '../pages/editcar-pool/editcar-pool';
+
 import { DataProvider } from '../providers/data/data';
 import {FIREBASE_CONFIG} from "./app.firebase.config";
 
 @NgModule({
   declarations: [
-    carPool,
+    carPool
 
-    EditcarPoolPage
+
   ],
   imports: [
 
@@ -32,13 +32,14 @@ import {FIREBASE_CONFIG} from "./app.firebase.config";
   ],
   bootstrap: [IonicApp],
   entryComponents: [
-    carPool,
+    carPool
 
-    EditcarPoolPage
+
   ],
   providers: [
     StatusBar,
     SplashScreen,
+    Geolocation,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     DataProvider
   ]

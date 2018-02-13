@@ -12,6 +12,7 @@ declare var google;
 })
 export class MapPage {
   @ViewChild('map') mapElement: ElementRef;
+   @ViewChild('directionsPanel') directionsPanel: ElementRef;
   map: any;
 
    constructor(public navCtrl: NavController, public geolocation: Geolocation) {
@@ -20,7 +21,7 @@ export class MapPage {
 
   ionViewDidLoad(){
     this.loadMap();
-
+    this.startNavigating();
 
   }
 
@@ -43,7 +44,28 @@ export class MapPage {
     });
 
   }
+  startNavigating(){
 
+       let directionsService = new google.maps.DirectionsService;
+       let directionsDisplay = new google.maps.DirectionsRenderer;
+
+       directionsDisplay.setMap(this.map);
+       directionsDisplay.setPanel(this.directionsPanel.nativeElement);
+
+       directionsService.route({
+           origin: 'nurney co.kildare ireland',
+           destination: 'maynooth university',
+           travelMode: google.maps.TravelMode['DRIVING']
+       }, (res, status) => {
+
+           if(status == google.maps.DirectionsStatus.OK){
+               directionsDisplay.setDirections(res);
+           } else {
+               console.warn(status);
+           }
+
+       });
+}
 	addMarker(){
 
 	  let marker = new google.maps.Marker({

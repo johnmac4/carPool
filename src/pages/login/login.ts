@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import {User} from  "../../models/user";
 import {AngularFireAuth} from "angularfire2/auth";
 
@@ -12,7 +12,7 @@ export class LoginPage {
 
   user = {} as User;
 
-  constructor(private afAuth: AngularFireAuth, public navCtrl: NavController, public navParams: NavParams) {
+  constructor(private afAuth: AngularFireAuth, public navCtrl: NavController, public navParams: NavParams, private alertCtrl:AlertController ) {
   }
 
 
@@ -34,5 +34,34 @@ if (result){
   register(){
    this.navCtrl.push('RegisterPage');
   }
+  showForgotPassword(){
+    let prompt = this.alertCtrl.create({
+    title: 'Please Enter Your Email',
+    message: 'A new password will be sent to your email',
+    inputs : [
+      {
+        name:'email',
+        placeholder:'Email'
+      },
+    ],
+    buttons: [
+      {
+        text: 'Cancel',
+        handler: data => {
+          console.log('Cancel clicked');
+        }
+      },
+      {
+        text: 'Submit',
+        handler: data => {
+          //call user service
+          this.afAuth.auth.sendPasswordResetEmail(data.email);
+        }
+      }
+    ]
+  });
+  prompt.present();
+}
+
 
 }

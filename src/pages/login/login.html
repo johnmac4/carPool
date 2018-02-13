@@ -25,7 +25,13 @@
     <ion-input type ="password"[(ngModel)]="user.password"></ion-input>
 </ion-item>
 
-
+<ion-buttons class= "joinButtons">
 <button ion-button (click)="login(user)">Login</button>
-<button ion-button color="light" (click)="register()">Register</button>
+<button ion-button  (click)="register()">Register</button>
+</ion-buttons>
+
+
+<div class= "forgetPasswordButton"(click)="showForgotPassword()">
+  <button  ion-button clear color="clear">FORGOT PASSWORD</button>
+</div>
 </ion-content>

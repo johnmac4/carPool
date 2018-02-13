@@ -12,6 +12,9 @@
     <ion-title>Google Maps</ion-title>
     <ion-buttons end>
     <button ion-button (click)="addMarker()"><ion-icon name="add"></ion-icon>Add Marker</button>
+
+
+    <button ion-button icon-only (click)="this.navCtrl.setRoot('HomePage') "><ion-icon name="home"></ion-icon></button>
   </ion-buttons>
   </ion-navbar>
 
@@ -19,5 +22,11 @@
 
 
 <ion-content >
+  <ion-card>
+        <ion-card-content>
+            <div #directionsPanel></div>
+        </ion-card-content>
+    </ion-card>
+    
   <div #map id="map"></div>
 </ion-content>

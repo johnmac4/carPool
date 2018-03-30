@@ -22,11 +22,14 @@
     "@angular/platform-browser-dynamic": "4.4.3",
     "@ionic-native/core": "4.3.0",
     "@ionic-native/geolocation": "^4.5.3",
+    "@ionic-native/native-geocoder": "^4.5.3",
     "@ionic-native/splash-screen": "4.3.0",
     "@ionic-native/status-bar": "4.3.0",
     "@ionic/storage": "2.0.1",
     "angularfire2": "^5.0.0-rc.4",
+    "cordova-plugin-add-swift-support": "^1.7.1",
     "cordova-plugin-geolocation": "^3.0.0",
+    "cordova-plugin-nativegeocoder": "^3.1.1",
     "cordova-plugin-websocket": "^0.12.2",
     "cross-spawn": "^5.1.0",
     "firebase": "^4.6.2",
@@ -44,7 +47,10 @@
   "cordova": {
     "plugins": {
       "cordova-plugin-websocket": {},
-      "cordova-plugin-geolocation": {}
+      "cordova-plugin-geolocation": {},
+      "cordova-plugin-nativegeocoder": {
+        "LOCATION_WHEN_IN_USE_DESCRIPTION": "Use geocoder service"
+      }
     }
   }
 }

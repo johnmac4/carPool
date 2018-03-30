@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController, App } from 'ionic-angular';
 import {AngularFireAuth} from "angularfire2/auth";
 
 import {AngularFireDatabase,FirebaseObjectObservable} from 'angularfire2/database-deprecated';
 import {Profile} from '../../models/profile';
+import {User} from  "../../models/user";
+//import { AuthServiceProvider } from '../../providers/auth/auth-service';
 
 
 
@@ -18,7 +20,7 @@ export class HomePage {
 
   constructor(private afAuth: AngularFireAuth, private afDatabase: AngularFireDatabase,
      private toast: ToastController, public navCtrl: NavController,
-     public navParams: NavParams){
+     public navParams: NavParams, public app: App){
   }
 
   ionViewWillLoad() {
@@ -26,7 +28,7 @@ export class HomePage {
       if(data && data.email && data.uid ){
       this.toast.create({
           message:`Welcome to carPool, ${data.email}`,
-    duration: 3000
+    duration: 5000
   }).present();
 
   this.profileData = this.afDatabase.object(`profile/${data.uid}`)
@@ -34,7 +36,7 @@ export class HomePage {
 else{
 this.toast.create({
    message: `Could not find Authentication details`,
-   duration:  3000
+   duration:  5000
 }).present();
 
 }
@@ -42,4 +44,15 @@ this.toast.create({
 
 }
 
+logout() {
+  this.afAuth.auth.signOut();
+  this.navCtrl.setRoot('LoginPage');
+  this.toast.create({
+     message: `Logging Out`,
+     duration:  5000
+  }).present();
+  }
+  findmatch(){
+    this.navCtrl.setRoot('MapPage');
+  }
 }

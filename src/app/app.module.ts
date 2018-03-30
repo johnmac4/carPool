@@ -6,6 +6,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import {AngularFireAuthModule} from "angularfire2/auth"
 import {AngularFireDatabaseModule} from 'angularfire2/database-deprecated';
 import { Geolocation } from '@ionic-native/geolocation';
+import { NativeGeocoder, NativeGeocoderReverseResult, NativeGeocoderForwardResult } from '@ionic-native/native-geocoder';
 
 import {FormsModule } from '@angular/forms';
 import {AngularFireModule} from 'angularfire2';
@@ -40,6 +41,7 @@ import {FIREBASE_CONFIG} from "./app.firebase.config";
     StatusBar,
     SplashScreen,
     Geolocation,
+    NativeGeocoder,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     DataProvider
   ]

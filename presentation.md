@@ -13,3 +13,6 @@ When writing for my project I am using Google Docs as my editor. I am keeping a 
 <!-- slide -->
 #summary
 So far I am happy with the progression of my project, while I have had plenty of difficulties I am managing to successfully work my way through them. I have documented everything that I have done so far and am confident for my future progression of my carPool Application.
+
+ctrl+shift+m for preview screen
+ctrl+shift+p for search of packages
